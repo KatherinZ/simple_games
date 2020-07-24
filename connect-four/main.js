@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         squares[index].classList.add('player-two')
         //Player change
         currentPlayer = 1
-        displayCurrentPlayer.innerHtml = currentPlayer
+        displayCurrentPlayer.innerHTML = currentPlayer
         }
       //if the square below your current square is not taken, you cant go there
       } else alert('cant go here')
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () =>{
 
    //take the 4 values in each of these arrays and plug them into the squares
    for(let y = 0; y < winningArrays.length; y++){
-     const square1 = square[winningArrays[y][0]]
-     const square2 = square[winningArrays[y][1]]
-     const square3 = square[winningArrays[y][2]]
-     const square4 = square[winningArrays[y][3]]
+     const square1 = squares[winningArrays[y][0]];
+     const square2 = squares[winningArrays[y][1]];
+     const square3 = squares[winningArrays[y][2]];
+     const square4 = squares[winningArrays[y][3]];
 
      //check if all the arrays have the class of player-one
      if(square1.classList.contains('player-one') &&
@@ -61,11 +61,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 
        //if it's true, player-one is passed as the winner
        result.innerHTML = 'Player one wins!'
+       //remove ability to change result
      }
        //check if all the arrays have the class name of player-two
-       else if(square1.classList.contains('player-two') &&
+       else if (square1.classList.contains('player-two') &&
                square2.classList.contains('player-two') &&
-               square3.classList.contains('player-two')&&
+               square3.classList.contains('player-two') &&
                square4.classList.contains('player-two')){
                  //if it's true, player-one is passed as the winner
                  result.innerHTML = 'Player two wins!'
